@@ -16,7 +16,7 @@ server {
 		}
 
 		location ~ \.php$ {
-				try_files $uri =404;
+				try_files $uri =404; #nginx는 정적 파일 호스팅을 기본적으로 지원하지 않기에, root 폴더 내에 uri 에 따른 폴더가 있는지 찾아보고, 만약 없다면 404 에러를 보여줍니다.
 				fastcgi_split_path_info ^(.+\.php)(/.+)$;
 				fastcgi_pass wordpress:9000;
 				fastcgi_index index.php;

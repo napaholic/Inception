@@ -1,7 +1,7 @@
 version: '3'
 services:
     mariadb:
-        container_name: mariadb_con
+        container_name: mariadb
         image: mariadb
         networks:
             - inception_net
