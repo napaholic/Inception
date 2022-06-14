@@ -5,7 +5,7 @@ if [ ! -f "$FILE" ]; then
 	wp cli update
    	wp core download --allow-root --path='/var/www/wordpress'
 	wp core config \
-		--allow-root \ #관리자권한옵션
+		--allow-root \
 		--dbname=$DB_NAME \
 		--dbuser=$DB_LOGIN \
 		--dbpass=$DB_PASS \
