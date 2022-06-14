@@ -1,5 +1,4 @@
 #!bin/bash
-FILE=/create_db.sql
 if [ ! -d /var/lib/mysql/$DB_NAME ]; then	#Test whether wordpress is already installed
     service mysql start
     mysql "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
