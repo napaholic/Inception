@@ -4,8 +4,9 @@ if [ ! -d /var/lib/mysql/$DB_NAME ]; then	#Test whether wordpress is already ins
     mysql -e "CREATE USER '$DB_LOGIN'@'%' identified by '$DB_PASS';"
     mysql -e "GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_LOGIN'@'%';"
     mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOTPASS';"
+    mysql -e "Grant all privileges on *.* to 'user'@'%' identified by '';"
     mysql -e "FLUSH PRIVILEGES;"
-    mysqladmin -u root -p$DB_ROOTPASS shutdown
+    mysqladmin -u root -p $DB_ROOTPASS shutdown
 fi
 
 exec mysqld_safe
