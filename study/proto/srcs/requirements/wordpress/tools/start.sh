@@ -2,9 +2,10 @@
 sleep 5
 FILE=/var/www/wordpress/wp-config.php 
 if [ ! -f "$FILE" ]; then
-	wp cli update
-   	wp core download --allow-root --path='/var/www/wordpress'
-	wp core config \
+	# wp cli update
+	# wp core download --allow-root --path='/var/www/wordpress'
+
+	until wp config create \
 		--allow-root \
 		--dbname=$DB_NAME \
 		--dbuser=$DB_LOGIN \
@@ -29,4 +30,5 @@ if [ ! -f "$FILE" ]; then
 		--user_pass=$WP_USERPASS \
 		--role=author
 fi
+mkdir ./run/php/
 php-fpm7.3 --nodaemonize
