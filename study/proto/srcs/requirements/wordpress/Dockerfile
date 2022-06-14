@@ -5,5 +5,6 @@ RUN chmod 777 ./install.sh
 RUN ./install.sh
 
 COPY 	./tools/start.sh /
+ADD
 WORKDIR /var/www/wordpress
 ENTRYPOINT ["sh","start.sh"]
