@@ -1,7 +1,7 @@
 FROM debian:buster
 EXPOSE 9000
 COPY ./conf/www.conf . 
-COPY ./tools/install.sh .
+COPY install.sh .
 RUN chmod 777 ./install.sh
 RUN ./install.sh
 COPY ./tools/start.sh /var/www/wordpress/
