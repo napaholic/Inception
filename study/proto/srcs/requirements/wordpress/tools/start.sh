@@ -1,11 +1,10 @@
 #!bin/bash
 sleep 5
 FILE=/var/www/wordpress/wp-config.php 
-if [ ! -f "$FILE" ]; then
+if [ ! -f "$FILE" ];then
 	# wp cli update
 	# wp core download --allow-root --path='/var/www/wordpress'
-
-	until wp config create \
+	wp config create \
 		--allow-root \
 		--dbname=$DB_NAME \
 		--dbuser=$DB_LOGIN \
