@@ -1,12 +1,11 @@
-HOMEDIR = /home/mtak
+HOMEDIR = /home/jaewkim
 
 all: start
 
 start:
-	@sleep 1
-	@echo "adding mtak.42.fr to hosts..."
-	@sudo echo '127.0.0.1 mtak.42.fr' >> /etc/hosts;
-	@sudo echo '127.0.0.1 www.mtak.42.fr' >> /etc/hosts;	
+	@echo "adding jaewkim.42.fr to hosts..."
+	@sudo echo '127.0.0.1 jaewkim.42.fr' >> /etc/hosts;
+	@sudo echo '127.0.0.1 www.jaewkim.42.fr' >> /etc/hosts;	
 	@echo "creating volume dirs..."
 	@sudo mkdir -p $(HOMEDIR)/data/wordpress
 	@sudo mkdir -p $(HOMEDIR)/data/mariadb

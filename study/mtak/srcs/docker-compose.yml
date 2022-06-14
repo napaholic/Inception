@@ -48,13 +48,13 @@ volumes:
         driver_opts:
             type: 'none'
             o: 'bind'
-            device: '/home/mtak/data/wordpress'
+            device: '/home/jaewkim/data/wordpress'
     mariadb_vol:
         driver: local
         driver_opts:
             type: 'none'
             o: 'bind'
-            device: '/home/mtak/data/mariadb'
+            device: '/home/jaewkim/data/mariadb'
 networks:
     inception_net:
         driver: bridge
