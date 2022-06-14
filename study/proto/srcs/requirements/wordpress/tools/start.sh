@@ -30,5 +30,5 @@ if [ ! -f "$FILE" ]; then
 		--user_pass=$WP_USERPASS \
 		--role=author
 fi
-mkdir ./run/php/
+
 php-fpm7.3 --nodaemonize
