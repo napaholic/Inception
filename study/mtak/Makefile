@@ -1,4 +1,4 @@
-HOMEDIR = /home/jaewkim
+HOMEDIR = /home/jay
 
 all: start
 
