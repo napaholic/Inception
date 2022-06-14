@@ -2,8 +2,8 @@
 sleep 5
 FILE=/var/www/wordpress/wp-config.php 
 if [ ! -f "$FILE" ]; then
-	wp cli update #워드프레스 명령창에서 관리하는 유틸리티
-   	wp core download --allow-root --path='/var/www/wordpress'#워드프레스 최종버전 디렉토리로 다운로드
+	wp cli update
+   	wp core download --allow-root --path='/var/www/wordpress'
 	wp core config \
 		--allow-root \ #관리자권한옵션
 		--dbname=$DB_NAME \
