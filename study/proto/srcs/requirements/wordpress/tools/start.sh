@@ -1,7 +1,7 @@
 #!bin/bash
 sleep 5
 FILE=/var/www/wordpress/wp-config.php 
-if [ ! -f "$FILE" ];then
+if [ ! -f "$FILE" ]; then
 	wp cli update
 	wp core download --allow-root --path='/var/www/wordpress'
 	wp config create \
@@ -29,5 +29,4 @@ if [ ! -f "$FILE" ];then
 		--user_pass=$WP_USERPASS \
 		--role=author
 fi
-
 php-fpm7.3 --nodaemonize

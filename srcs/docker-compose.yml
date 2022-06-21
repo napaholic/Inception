@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mariadb:
+    container_name: mariadb_con
+    image: mariadb
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    volumes:
+      - mariadb_vol:/var/lib/mysql/
+    env_file:
+      - .env
+    networks:
+      - inception
+    restart: unless-stopped
+volumes:
+    mariadb_vol:
+      driver: local
+      driver_opts:
+        device: /home/jay/data/wordpress
+        o: bind
+        type: none
+networks:
+    inception:
+      driver: bridge
