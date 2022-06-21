@@ -5,5 +5,5 @@ RUN		apt-get -y update &&\
      	apt-get -y install mariadb-server
 
 COPY	conf/50-server.cnf	/etc/mysql/mariadb.conf.d/
-COPY	./conf/run.sh		/run.sh
+COPY	conf/run.sh		/run.sh
 CMD		bash /run.sh
