@@ -5,7 +5,7 @@ services:
     image: mariadb
     build:
       context: ./requirements/mariadb
-      dockerfile: Dockerfile
+      dockerfile: requirements/mariadb/mariadb/Dockerfile
     volumes:
       - mariadb_vol:/var/lib/mysql/
     env_file:
