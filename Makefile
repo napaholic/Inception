@@ -1,3 +1,4 @@
+HOMEDIR = /home/jaewkim
 DOCKER_COMPOSE_FILE	=	./srcs/docker-compose.yml
 
 all: start
