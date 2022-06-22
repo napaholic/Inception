@@ -1,8 +1,11 @@
 DOCKER_COMPOSE_FILE	=	./srcs/docker-compose.yml
 
-all:
+all: start
+
+start:
 	@sudo mkdir -p $(HOMEDIR)/data/wordpress
 	@sudo mkdir -p $(HOMEDIR)/data/mariadb
+	@echo "docker-compose up..."
 	docker-compose -f $(DOCKER_COMPOSE_FILE) up -d --build
 
 re: clean all
