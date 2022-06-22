@@ -16,7 +16,7 @@ volumes:
     mariadb_vol:
       driver: local
       driver_opts:
-        device: /home/jay/data/wordpress
+        device: /home/jaewkim/data/wordpress
         o: bind
         type: none
 networks:
