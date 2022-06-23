@@ -15,4 +15,4 @@ RUN		openssl req -newkey rsa:4096 -days 365 -nodes -x509\
 
 COPY	./conf/default	/etc/nginx/sites-available/default
 
-ENTRYPOINT []
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
