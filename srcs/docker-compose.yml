@@ -33,9 +33,10 @@ volumes:
     mariadb_vol:
       driver: local
       driver_opts:
-        device: /home/jaewkim/data/wordpress
-        o: bind
-        type: none
+        type: 'none'
+        o: 'bind'
+        device: '/home/jaewkim/data/mariadb'
+
 networks:
     inception:
       driver: bridge
