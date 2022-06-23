@@ -12,7 +12,24 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  nginx:
+    container_name: nginx_con
+    build:
+      context: requirements/nginx
+    env_file:
+      - .env
+    ports:
+      - "443:443"
+    volumes:
+      - wordpress_vol:/var/www/wordpress
+    restart: unless-stopped
 volumes:
+    wordpress_vol:
+      driver: local
+      driver_opts:
+        type: 'none'
+        o: 'bind'
+        device: '/home/jaewkim/data/wordpress'
     mariadb_vol:
       driver: local
       driver_opts:
