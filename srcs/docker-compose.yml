@@ -20,7 +20,7 @@ services:
       context: requirements/wordpress
       dockerfile: Dockerfile
     volumes:
-      - wordpress_vol:var/www/wordpress
+      - wordpress_vol:/var/www/wordpress
     networks:
       - inception
     restart: unless-stopped
