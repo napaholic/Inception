@@ -12,7 +12,21 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  wordpress:
+    depends_on:
+      - mariadb
+    container_name: wordpress_con
+    build:
+      context: requirements/wordpress
+      dockerfile: Dockerfile
+    volumes:
+      - wordpress_vol:var/www/wordpress
+    networks:
+      - inception
+    restart: unless-stopped
   nginx:
+    depends_on:
+      - wordpress
     container_name: nginx_con
     build:
       context: requirements/nginx
