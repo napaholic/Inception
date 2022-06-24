@@ -13,8 +13,6 @@ services:
       - inception
     restart: unless-stopped
   nginx:
-    depends_on:
-      - wordpress
     container_name: nginx_con
     build:
       context: requirements/nginx
