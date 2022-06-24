@@ -31,7 +31,7 @@ services:
                 build: ./requirements/nginx
                 restart: on-failure
                 ports:
-                        - 443:443
+                        - "443:443"
                 networks:
                         - Inception
                 volumes:
