@@ -7,6 +7,7 @@ RUN		apt-get -y install php7.3\
 		php-mysqli\
 		mariadb-client\
 		wget\
+     	vim\
 		curl
 
 # wordpress 다운받기

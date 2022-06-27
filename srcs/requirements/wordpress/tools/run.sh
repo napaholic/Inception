@@ -1,15 +1,15 @@
 sleep 5
 if [ ! -e /var/www/wordpress/wp-config.php ]; then
 # wp-config.php file 만들기
-    until   wp config create    --allow-root
-    							--dbname=$DB_NAME\
-    							--dbuser=$DB_LOGIN\
-                                --dbpass=$DB_PASS\
-                                --dbhost=mariadb:3306\
-                                --path='/var/www/wordpress'; do
-            echo "Waiting for mariadb to start..."
-		    sleep 2
-    done
+	wp cli update
+	wp core download --allow-root --path='/var/www/wordpress'
+    wp core config		--allow-root\
+    					--dbname=$DB_NAME\
+    					--dbuser=$DB_LOGIN\
+    					--dbpass=$DB_PASS\
+    					--dbhost=mariadb:3306\
+    					--path='/var/www/wordpress'
+	sleep 2
     # wordpress 세팅하기
     # --allow-root : 관리자 권한 허용
     wp core install     --allow-root		\
@@ -19,7 +19,8 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
                         --admin_password=$WP_ADMINPASS	\
                         --admin_email="jaewkim@student.42seoul.com"	\
                         --path='/var/www/wordpress' >> /log.txt
-    wp user create      --allow-root $WP_USER $WP_EMAIL2	\
+    wp user create      --allow-root	$WP_USER \
+    									$WP_EMAIL2	\
     					--user_pass=$WP_USERPASS --role=author	\
                         --path='/var/www/wordpress' >> /log.txt
 fi
