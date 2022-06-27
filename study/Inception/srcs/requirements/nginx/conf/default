@@ -8,8 +8,8 @@ server {
 	ssl_protocols TLSv1.2 TLSv1.3;
 
 	# ssl
-	ssl_certificate /etc/ssl/certs/localhost.crt;
-	ssl_certificate_key /etc/ssl/private/localhost_p.key;
+	ssl_certificate /etc/ssl/certs/jaewkim.crt;
+	ssl_certificate_key /etc/ssl/private/jaewkim_p.key;
 
 	# server root directory
 	root /var/www/wordpress;
