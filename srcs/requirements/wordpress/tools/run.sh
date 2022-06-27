@@ -4,7 +4,7 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
     							--dbname=$WP_DB_NAME \
     							--dbuser=$DB_ADMIN_NAME\
                                 --dbpass=$DB_ADMIN_PASSWORD \
-                                --dbhost=mariadb:3306 --path='/var/www/wordpress'
+                                --dbhost=mariadb:3306 --path='/var/www/wordpress'; do
             echo "asdf"
             sleep 2
     # --allow-root : 관리자 권한 허용
@@ -17,7 +17,7 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
     wp user create      --allow-root $WP_USER $WP_EMAIL2 \
     					--user_pass=$WP_USERPASS \
     					--role=author\
-                        --path='/var/www/wordpress'
+                        --path='/var/www/wordpress' >> /log.txt
 fi
 
 # foreground로 실행하기
