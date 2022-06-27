@@ -21,13 +21,13 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
                         --path='/var/www/wordpress' >> /log.txt
     wp user create      --allow-root	$WP_USER \
     									$WP_EMAIL2	\
-    					--user_pass=$WP_USERPASS --role=author	\
+    					--user_pass=$WP_USERPASS \
+    					--role=author	\
                         --path='/var/www/wordpress' >> /log.txt
 fi
 
 # foreground로 실행하기
-mkdir ./run/php/
-/usr/sbin/php-fpm7.3 -F
+php-fpm7.3 --nodaemonize
 
 # user 확인하기
 # wp user list --allow-root
