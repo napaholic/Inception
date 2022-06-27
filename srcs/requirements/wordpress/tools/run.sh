@@ -1,4 +1,3 @@
-#!/bin/bash
 if [ ! -e /var/www/wordpress/wp-config.php ]; then
 # wp-config.php file 만들기
     until   wp config create	--allow-root \
@@ -6,7 +5,8 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
     							--dbuser=$DB_ADMIN_NAME\
                                 --dbpass=$DB_ADMIN_PASSWORD \
                                 --dbhost=mariadb:3306 --path='/var/www/wordpress'
-    done
+            echo "asdf"
+            sleep 2
     # --allow-root : 관리자 권한 허용
     wp core install     --allow-root --url=$DOMAIN \
     					--title=$WP_TITLE \
