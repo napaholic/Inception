@@ -1,5 +1,5 @@
 sleep 5
-if [ ! -e /var/www/wordpress/wp-config.php ]; then
+if [ ! -f /var/www/wordpress/wp-config.php ]; then
 # wp-config.php file 만들기
 	wp cli update
 	wp core download --allow-root --path='/var/www/wordpress'
