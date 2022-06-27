@@ -4,7 +4,7 @@ if [ ! -e /var/www/wordpress/wp-config.php ]; then
     until   wp config create    --allow-root
     							--dbname=$DB_NAME\
     							--dbuser=$DB_LOGIN\
-                                --dbpass=$DB_PASS
+                                --dbpass=$DB_PASS\
                                 --dbhost=mariadb:3306\
                                 --path='/var/www/wordpress'; do
             echo "Waiting for mariadb to start..."
