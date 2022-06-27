@@ -4,6 +4,6 @@ COPY ./conf/www.conf .
 COPY ./tools/install.sh .
 RUN chmod 777 ./install.sh
 RUN ./install.sh
-COPY ./tools/start.sh /var/www/wordpress/
+COPY ./tools/run.sh /var/www/wordpress/
 WORKDIR /var/www/wordpress
-ENTRYPOINT ["sh","start.sh"]
+ENTRYPOINT ["sh","run.sh"]
