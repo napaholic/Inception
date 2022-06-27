@@ -12,6 +12,8 @@ services:
     networks:
       - inception
     restart: unless-stopped
+    expose:
+      - 3306
   wordpress:
     depends_on:
       - mariadb
@@ -26,6 +28,8 @@ services:
     networks:
       - inception
     restart: unless-stopped
+    expose:
+      - 9000
   nginx:
     depends_on:
       - wordpress
