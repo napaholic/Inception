@@ -1,3 +1,4 @@
+#!bin/bash
 sleep 5
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
 # wp-config.php file 만들기
@@ -25,4 +26,5 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 fi
 
 # foreground로 실행하기
+touch /run/php/php7.3-fpm.pid
 php-fpm7.3 --nodaemonize
