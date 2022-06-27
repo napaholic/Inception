@@ -17,17 +17,12 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
     					--title=$WP_TITLE	\
     					--admin_user=$WP_ADMIN	\
                         --admin_password=$WP_ADMINPASS	\
-                        --admin_email="jaewkim@student.42seoul.com"	\
-                        --path='/var/www/wordpress' >> /log.txt
+                        --admin_email="jaewkim@student.42seoul.com"
     wp user create      --allow-root	$WP_USER \
     									$WP_EMAIL2	\
     					--user_pass=$WP_USERPASS \
-    					--role=author	\
-                        --path='/var/www/wordpress' >> /log.txt
+    					--role=author
 fi
 
 # foreground로 실행하기
 php-fpm7.3 --nodaemonize
-
-# user 확인하기
-# wp user list --allow-root
