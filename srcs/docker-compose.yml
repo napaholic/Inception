@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - wordpress_vol:/var/www/wordpress
-    env_file: :
+    env_file:
       - .env
     networks:
       - inception
