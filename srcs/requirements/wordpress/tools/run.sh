@@ -1,32 +1,22 @@
-#!bin/bash
-sleep 5
-FILE=/var/www/wordpress/wp-config.php
-if [ ! -f "$FILE" ]; then
-	wp cli update
-   	wp core download --allow-root --path='/var/www/wordpress'
-	wp core config \
-		--allow-root \
-		--dbname=$DB_NAME \
-		--dbuser=$DB_LOGIN \
-		--dbpass=$DB_PASS \
-		--dbhost=mariadb:3306 \
-		--path='/var/www/wordpress'
 
-	wp core install \
-		--allow-root \
-		--url=$DOMAIN \
-		--title=$WP_TITLE \
-		--admin_user=$WP_ADMIN \
-		--admin_password=$WP_ADMINPASS \
-		--admin_email="jaewkim@gmail.com" \
-		--skip-email \
-		--path='/var/www/wordpress'
-
-	wp user create \
-		--allow-root \
-		$WP_USER \
-		jay@email.com \
-		--user_pass=$WP_USERPASS \
-		--role=author
+if [ ! -e /var/www/wordpress/wp-config.php ]; then
+# wp-config.php file 만들기
+    until   wp config create    --allow-root --dbname=$WP_DB_NAME --dbuser=$DB_ADMIN_NAME\
+                                --dbpass=$DB_ADMIN_PASSWORD --dbhost=mariadb:3306 --path='/var/www/wordpress'; do
+            echo "Waiting for mariadb to start..."
+		    sleep 2
+    done
+    # wordpress 세팅하기
+    # --allow-root : 관리자 권한 허용
+    wp core install     --allow-root --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_USER1_NAME\
+                        --admin_password=$WP_USER1_PASSWORD --admin_email=$WP_EMAIL1 --path='/var/www/wordpress'
+    wp user create      --allow-root $WP_USER2_NAME $WP_EMAIL2 --user_pass=$WP_USER2_PASSWORD --role=author\
+                        --path='/var/www/wordpress' >> /log.txt
 fi
-php-fpm7.3 --nodaemonize
+
+# foreground로 실행하기
+mkdir ./run/php/
+/usr/sbin/php-fpm7.3 -F
+
+# user 확인하기
+# wp user list --allow-root
