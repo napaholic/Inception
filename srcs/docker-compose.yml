@@ -22,7 +22,7 @@ services:
       context: requirements/wordpress
       dockerfile: Dockerfile
     volumes:
-      - wordpress_vol:/var/www/wordpress
+      - wordpress:/var/www/wordpress
     env_file:
       - .env
     networks:
@@ -42,12 +42,12 @@ services:
     ports:
       - 443:443
     volumes:
-      - wordpress_vol:/var/www/wordpress
+      - wordpress:/var/www/wordpress
     networks:
       - inception
     restart: on-failure
 volumes:
-    wordpress_vol:
+    wordpress:
       driver: local
       driver_opts:
         type: 'none'
