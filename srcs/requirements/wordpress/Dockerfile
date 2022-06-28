@@ -28,4 +28,4 @@ RUN		curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cl
 
 # run.sh로 wordpress 시작하기
 COPY	./tools/run.sh /
-CMD		bash /run.sh
+ENTRYPOINT ["bash", "run.sh"]
